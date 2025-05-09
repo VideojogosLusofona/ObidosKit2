@@ -1,0 +1,244 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4193621955505236596
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -116.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849393829061369205, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: _showInfo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849393829061369205, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: hypertags.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849393829061369205, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: 'hypertags.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fdff0ed61460d5f4fb3118a0b5908133, type: 2}
+    - target: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_Name
+      value: Animal Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519194153519242652, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1319315252296537693, guid: 28db9d88c376cac4396dc479a17f4846, type: 3}
+    - target: {fileID: 5519194153519242652, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_Color.b
+      value: 0.23529409
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519194153519242652, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_Color.g
+      value: 0.90588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519194153519242652, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2544932
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773031515282250461, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4417879298076999351}
+    - targetCorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8597075816305409714}
+    - targetCorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7465156376748806717}
+  m_SourcePrefab: {fileID: 100100000, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+--- !u!1 &776449926748489824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+  m_PrefabInstance: {fileID: 4193621955505236596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4417879298076999351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776449926748489824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14e6c143c2403d469e77a917c7cdce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 1
+  _explanation: Applies a vertical bounce to target on Gfx based on this object's
+    movement. One bounce cycle takes 0.25 seconds and reaches a height of 2 units.
+    If the object teleports more than 50 units, the bounce resets.
+  description: 
+  target:
+    type: 1
+    tag: {fileID: 0}
+    obj: {fileID: 962247714178535727}
+    flags: 0
+  stepTime: 0.25
+  stepHeight: 2
+  teleportDistance: 50
+--- !u!114 &8597075816305409714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776449926748489824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea683d36c47ccf34683c3029d2ae80df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 1
+  _explanation: 'This module will be controlled by the AI module. Object moves at
+    (25.00, 25.00) units per second.
+
+    Speed will be limited to 25 units per second.
+
+    When
+    the character is moving to the left, the object will be rotated 180 degrees around
+    the Y axis.
+
+'
+  description: 
+  hasConditions: 0
+  conditions: []
+  speed: {x: 25, y: 25}
+  limitSpeed: 1
+  speedLimit: 25
+  useRotation: 0
+  turnToDirection: 0
+  axisToAlign: 0
+  maxTurnSpeed: 360
+  inputEnabled: 0
+  inputType: 0
+  horizontalAxis: Horizontal
+  verticalAxis: Vertical
+  horizontalButtonPositive: Right
+  horizontalButtonNegative: Left
+  verticalButtonPositive: Up
+  verticalButtonNegative: Down
+  horizontalKeyPositive: 275
+  horizontalKeyNegative: 276
+  verticalKeyPositive: 273
+  verticalKeyNegative: 274
+  inertiaEnable: 0
+  inertiaStopTime: 0
+  flipBehaviour: 3
+  useAnimator: 0
+  animator: {fileID: 0}
+  horizontalVelocityParameter: 
+  absoluteHorizontalVelocityParameter: 
+  verticalVelocityParameter: 
+  absoluteVerticalVelocityParameter: 
+--- !u!114 &7465156376748806717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776449926748489824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b51445014b42347a46b5a101faa716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 1
+  _explanation: "This module enables AI behavior for this object, including stateful
+    transitions between behaviors such as idle, patrol, wandering, fleeing, chasing,
+    and searching.\n- Wanders within a radius of 50 units from its spawn point every
+    2\u20133s at 1\xD7 speed."
+  description: 
+  agentRadius: 8
+  agentOffset: {x: 0, y: 0}
+  flags: 1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
+  wanderRadius: 50
+  timeBetweenWanders: {x: 2, y: 3}
+  wanderSpeedModifier: 1
+  fleeProximityRadius: 20
+  fleeSpeedModifier: 1
+  stopFleeingInterval: {x: 2, y: 2}
+  fleeTags: []
+  chaseStopDistance: 20
+  chaseViewDistance: 100
+  chaseUseFOV: 0
+  chaseFieldOfView: 45
+  chaseSpeedModifier: 1
+  chaseUseMaxRangeFromSpawn: 0
+  chaseMaxRangeFromSpawn: 100
+  chaseRequireLOS: 0
+  searchRadius: 50
+  searchSpeedModifier: 1
+  searchMaxTime: 10
+  chaseTags: []
+  patrolSpeedModifier: 1
+  patrolMode: 0
+  patrolPath: {fileID: 0}
+  patrolPoints: []
+--- !u!4 &962247714178535727 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3992489179767389019, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+  m_PrefabInstance: {fileID: 4193621955505236596}
+  m_PrefabAsset: {fileID: 0}

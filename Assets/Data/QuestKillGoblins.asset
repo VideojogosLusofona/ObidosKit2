@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1770d6d104d90a469edd1bb40026b95, type: 3}
+  m_Name: QuestKillGoblins
+  m_EditorClassIdentifier: 
+  _showInfo: 1
+  _explanation: "Requires the following quests:\n\nQuest Objectives:\n   Goblins
+    Killed (0/3)\n   Return to Wizard (0/1)\n"
+  description: 
+  displayName: Kill Goblins
+  questText: 
+  questsRequired: []
+  questObjectives:
+  - type: 1
+    name: Goblins Killed
+    item: {fileID: 0}
+    tag: {fileID: 11400000, guid: 1d8b8689454aab0448df04414e42d46e, type: 2}
+    count: 3
+  - type: 1
+    name: Return to Wizard
+    item: {fileID: 0}
+    tag: {fileID: 11400000, guid: 58a59783cdf1b584a9cdfb9d84e95a04, type: 2}
+    count: 1
+  flags: 0

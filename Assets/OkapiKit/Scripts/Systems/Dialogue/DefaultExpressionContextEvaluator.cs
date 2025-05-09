@@ -113,7 +113,7 @@ namespace OkapiKit
             return (newObject != null);
         }
 
-        public bool AddItemToInventory(string targetTagName, string itemName, int quantity = 1)
+        public bool AddItemToInventory(string targetTagName, string itemName, int quantity)
         {
             Item item = GetItemByName(itemName);
             if (item == null)
@@ -135,7 +135,7 @@ namespace OkapiKit
             }
             return inventory.Add(item, quantity) == quantity;
         }
-        public bool RemoveItemFromInventory(string targetTagName, string itemName, int quantity = 1)
+        public bool RemoveItemFromInventory(string targetTagName, string itemName, int quantity)
         {
             Item item = GetItemByName(itemName);
             if (item == null)
@@ -159,7 +159,7 @@ namespace OkapiKit
         }
 
 
-        public bool HasItemInInventory(string targetTagName, string itemName, int quantity = 1)
+        public bool HasItemInInventory(string targetTagName, string itemName, int quantity)
         {
             Item item = GetItemByName(itemName);
             if (item == null)
@@ -310,7 +310,14 @@ namespace OkapiKit
             if (cachedTags == null)
             {
                 cachedTags = new();
-                foreach (var t in tags) cachedTags.Add(t.name, t);
+                foreach (var t in tags)
+                {
+                    cachedTags.TryAdd(t.name, t);
+                    if (t.name.StartsWith("Tag"))
+                    {
+                        cachedTags.TryAdd(t.name.Substring(3), t);
+                    }
+                }
             }
 
             if (cachedTags.TryGetValue(name, out var tag))
@@ -324,7 +331,14 @@ namespace OkapiKit
             if (cachedPrefabs == null)
             {
                 cachedPrefabs = new();
-                foreach (var p in prefabs) cachedPrefabs.Add(p.name, p.prefab);
+                foreach (var p in prefabs)
+                {
+                    cachedPrefabs.TryAdd(p.name, p.prefab);
+                    if (p.name.StartsWith("Prefab"))
+                    {
+                        cachedPrefabs.TryAdd(p.name.Substring(6), p.prefab);
+                    }
+                }
             }
 
             if (cachedPrefabs.TryGetValue(name, out var prefab))
@@ -344,7 +358,15 @@ namespace OkapiKit
             if (cachedItems == null)
             {
                 cachedItems = new();
-                foreach (var i in items) cachedItems.Add(i.name, i);
+                foreach (var i in items)
+                {
+                    cachedItems.TryAdd(i.name, i);
+                    if (i.name.StartsWith("Item"))
+                    {
+                        cachedItems.TryAdd(i.name.Substring(4), i);
+                    }
+                    cachedItems.TryAdd(i.displayName, i);
+                }
             }
 
             if (cachedItems.TryGetValue(name, out var item))

@@ -6,52 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/OkapiKitSamples/Samples.unity
-    guid: fbe436a18220faf429eb17618d9ab864
+    path: Assets/Scenes/SampleGame_Title.unity
+    guid: 6817f3153ded7e641bcb68fa5a1754fb
   - enabled: 1
-    path: Assets/OkapiKitSamples/Pong/Pong.unity
-    guid: e3f4e76148d682f45aa35df21d4f993b
+    path: Assets/Scenes/SampleGame.unity
+    guid: ca7adc2392b0ee94faf57597b96444ac
   - enabled: 1
-    path: Assets/OkapiKitSamples/Breakout/Breakout.unity
-    guid: 30fd746f5616b8e4498befe003ee7ae5
-  - enabled: 1
-    path: Assets/OkapiKitSamples/SpaceInvaders/SpaceInvaders.unity
-    guid: d1612ebf41a507f49bf7dec067176d6f
-  - enabled: 1
-    path: Assets/OkapiKitSamples/SideShooter/SideShooter.unity
-    guid: c4e843e9dc3ffe44b89777e62c8bdc86
-  - enabled: 1
-    path: Assets/OkapiKitSamples/Asteroids/Asteroids.unity
-    guid: 9e99fa697cd7be843a880567c21ee193
-  - enabled: 1
-    path: Assets/OkapiKitSamples/Commando/Commando.unity
-    guid: fd707bc1ef9c7d94bb739a1e9b66193d
-  - enabled: 1
-    path: Assets/OkapiKitSamples/Snippets.unity
-    guid: 4ad9ae2692c52df4299e2594a1609159
-  - enabled: 1
-    path: Assets/OkapiKitSamples/Snippets/Probe.unity
-    guid: 58fe37225e96a89408f0e7a673c1244f
-  - enabled: 1
-    path: Assets/OkapiKitSamples/Snippets/StoppingDistance.unity
-    guid: 0806f99de1713894c9c0ebc0dff0ea42
-  - enabled: 1
-    path: Assets/OkapiKitSamples/Platformer/Platformer.unity
-    guid: d1d82361234b9bd47b4da5a818a57c36
-  - enabled: 1
-    path: Assets/OkapiKitSamples/Snippets/SingletonSoundManagerA.unity
-    guid: 5d410d58b6c1786438dda1f8a45b9f09
-  - enabled: 1
-    path: Assets/OkapiKitSamples/Snippets/SingletonSoundManagerB.unity
-    guid: 813d8d29f2558154f85c4ba201af7a5e
-  - enabled: 1
-    path: Assets/OkapiKitSamples/Snippets/FuzzyAim.unity
-    guid: 5c1264440b2f1c649bd7c489344b1185
-  - enabled: 1
-    path: Assets/OkapiKitSamples/Snippets/AlternateZones.unity
-    guid: 36f1b140be972704fb9aff4fdf6a1928
-  - enabled: 1
-    path: Assets/OkapiKitSamples/Grid/GridSnippet.unity
-    guid: fe1bb11cfcffe3243834fca68c2e80ce
+    path: Assets/Scenes/SampleGame_IntoCellar.unity
+    guid: c40fa9d1df9f3fd49abef063f5514f52
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

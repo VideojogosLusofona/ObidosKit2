@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +7,16 @@ namespace OkapiKit
     [AddComponentMenu("Okapi/Trigger/On Collision")]
     public class TriggerOnCollision : Trigger
     {
+        [Flags]
+        public enum CollisionType 
+        { 
+            Collider = 1, 
+            Trigger = 2
+        }
         public enum CollisionEvent { Enter, Stay, Exit };
 
         [SerializeField]
-        private bool isTrigger = true;
+        private CollisionType collisionType = CollisionType.Trigger;
         [SerializeField]
         private CollisionEvent eventType;
         [SerializeField]
@@ -18,6 +24,9 @@ namespace OkapiKit
 
         private static GameObject           lastCollider = null;
         private static Stack<GameObject>    lastColliderStack = new();
+
+        bool isTrigger => (collisionType & CollisionType.Trigger) != 0;
+        bool isCollider => (collisionType & CollisionType.Collider) != 0;
 
         public static GameObject GetLastCollider() => lastCollider;
         public static void PushLastCollider(GameObject go) { lastColliderStack.Push(lastCollider); lastCollider = go; }
@@ -31,8 +40,10 @@ namespace OkapiKit
             if (eventType == CollisionEvent.Stay) desc = "While a collision with ";
             else desc = "When a collision with ";
 
-            if (isTrigger) desc += "a trigger ";
-            else desc += "a bounding volume ";
+            if (collisionType == (CollisionType.Collider | CollisionType.Trigger)) desc += "any type of collider ";
+            else if ((collisionType & CollisionType.Trigger) != 0) desc += "a trigger ";
+            else if ((collisionType & CollisionType.Collider) != 0) desc += "a bounding volume ";
+
             if ((tags != null) && (tags.Length > 0))
             {
                 desc += "with tags [";
@@ -79,6 +90,11 @@ namespace OkapiKit
             {
                 _logs.Add(new LogEntry(LogEntry.Type.Error, "OnCollision can only detect collisions if set on an object with a rigid body!", "In Unity, collision events are only reported if there's a rigidbody on the same object as the component that's using those collisions.\nIn this case, that component is this OnCollision trigger."));
             }
+
+            if (collisionType == 0)
+            {
+                _logs.Add(new LogEntry(LogEntry.Type.Error, "Need to select collider or trigger!", "You need to choose collider or trigger or both to trigger the collisions!"));
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -101,7 +117,7 @@ namespace OkapiKit
         {
             lastCollider = null;
 
-            if (isTrigger) return;
+            if (!isCollider) return;
             if (!isTriggerEnabled) return;
             if (eventType != CollisionEvent.Enter) return;
             if (!collision.gameObject.HasHypertags(tags)) return;
@@ -135,7 +151,7 @@ namespace OkapiKit
         {
             lastCollider = null;
 
-            if (isTrigger) return;
+            if (!isCollider) return;
             if (!isTriggerEnabled) return;
             if (eventType != CollisionEvent.Stay) return;
             if (!collision.gameObject.HasHypertags(tags)) return;
@@ -169,7 +185,7 @@ namespace OkapiKit
         {
             lastCollider = null;
 
-            if (isTrigger) return;
+            if (!isCollider) return;
             if (!isTriggerEnabled) return;
             if (eventType != CollisionEvent.Exit) return;
             if (!collision.gameObject.HasHypertags(tags)) return;

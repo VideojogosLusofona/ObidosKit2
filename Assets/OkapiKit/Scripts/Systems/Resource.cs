@@ -14,6 +14,8 @@ namespace OkapiKit
             UseCooldownPerSource = 2,
             OverrideStartValue = 4,
             EnableCombatText = 8,
+            RecoveryOverTime = 16,
+            WaitBeforeRecover = 32
         };
 
         public delegate void OnChange(ChangeType changeType, float deltaValue, Vector3 changeSrcPosition, Vector3 changeSrcDirection, GameObject changeSource);
@@ -33,17 +35,26 @@ namespace OkapiKit
         private float       cooldownPerSource = 0.5f;
         [SerializeField]
         private float       startValue = 100.0f;
+        [SerializeField]
+        private float       recoveryPerSecond = 10.0f;
+        [SerializeField]
+        private float       timeBeforeRecovery = 1.0f;
 
         protected float _resource = 100.0f;
         protected bool  _resourceEmpty;
-        protected float lastChange;
-        protected Dictionary<GameObject, float> lastChangePerSource = new();
+        protected float timeOfLastChange;
+        protected Dictionary<GameObject, float> timeOfLastChangePerSource = new();
         
-        public bool isOnGlobalCooldown => ((flags & Flags.UseCooldownOnChanges) != 0) && ((Time.time - lastChange) < globalCooldown);
-        public bool isOnCooldown(GameObject src) => (isOnGlobalCooldown) || ((flags & Flags.UseCooldownPerSource) != 0) && (src != null) && (lastChangePerSource.ContainsKey(src) && (Time.time - lastChangePerSource[src]) < cooldownPerSource);
+        public bool isOnGlobalCooldown => ((flags & Flags.UseCooldownOnChanges) != 0) && ((Time.time - timeOfLastChange) < globalCooldown);
+        public bool isOnCooldown(GameObject src) => (isOnGlobalCooldown) || ((flags & Flags.UseCooldownPerSource) != 0) && (src != null) && (timeOfLastChangePerSource.ContainsKey(src) && (Time.time - timeOfLastChangePerSource[src]) < cooldownPerSource);
         public bool isCombatTextEnabled => (flags & Flags.EnableCombatText) != 0;
+        public bool canRecover => (flags & Flags.RecoveryOverTime) != 0;
+        public bool waitBeforeRecover => (flags & Flags.WaitBeforeRecover) != 0;
 
         public float maxValue => type?.maxValue ?? 0.0f;
+
+        public Vector2 GetRange() => new Vector2(0.0f, type?.maxValue ?? 1.0f);
+
         public float resource
         {
             get { return _resource; }
@@ -140,11 +151,11 @@ namespace OkapiKit
 
                 if (ret)
                 {
-                    if ((changeSource) && ((flags & Flags.UseCooldownPerSource) != 0))
+                    if ((changeSource) && ((flags & Flags.UseCooldownPerSource) != 0) && (changeSource != gameObject))
                     {
-                        lastChangePerSource[changeSource] = Time.time;
+                        timeOfLastChangePerSource[changeSource] = Time.time;
                     }
-                    lastChange = Time.time;
+                    timeOfLastChange = Time.time;
                 }
             }
 
@@ -185,7 +196,7 @@ namespace OkapiKit
             _resource = Mathf.Clamp(r, 0.0f, type.maxValue);
             _resourceEmpty = (_resource <= 0.0f);
 
-            lastChange = Time.time;
+            timeOfLastChange = Time.time;
         }
 
         public void ResetResource(GameObject src = null)
@@ -200,13 +211,40 @@ namespace OkapiKit
                 _resource = type.defaultValue;
 
             _resourceEmpty = false;
-            lastChange = Time.time;
+            timeOfLastChange = Time.time;
         }
 
         public override string GetRawDescription(string ident, GameObject refObject)
         {
-            return "";
+            if (type == null)
+                return $"{ident}Resource is not configured with a valid type.\n";
+
+            List<string> lines = new();
+
+            lines.Add($"{ident}{type.displayName} resource (max: {type.maxValue:0.##}).");
+
+            if ((flags & Flags.OverrideStartValue) != 0)
+                lines.Add($"{ident}Starts at {startValue:0.##} instead of the default value.");
+
+            if ((flags & Flags.UseCooldownOnChanges) != 0)
+                lines.Add($"{ident}Global cooldown of {globalCooldown:0.##}s on changes.");
+
+            if ((flags & Flags.UseCooldownPerSource) != 0)
+                lines.Add($"{ident}Cooldown of {cooldownPerSource:0.##}s per source.");
+
+            if ((flags & Flags.RecoveryOverTime) != 0)
+            {
+                lines.Add($"{ident}Recovers over time at {recoveryPerSecond:0.##} per second.");
+                if ((flags & Flags.WaitBeforeRecover) != 0)
+                    lines.Add($"{ident}Recovery starts after {timeBeforeRecovery:0.##}s without changes.");
+            }
+
+            if ((flags & Flags.EnableCombatText) != 0)
+                lines.Add($"{ident}Combat text is enabled.");
+
+            return string.Join("\n", lines);
         }
+
 
         private void Update()
         {
@@ -214,7 +252,7 @@ namespace OkapiKit
             {
                 var keysToRemove = new List<GameObject>();
 
-                foreach (var kvp in lastChangePerSource)
+                foreach (var kvp in timeOfLastChangePerSource)
                 {
                     if (kvp.Key == null)
                         keysToRemove.Add(kvp.Key);
@@ -224,7 +262,16 @@ namespace OkapiKit
 
                 foreach (var key in keysToRemove)
                 {
-                    lastChangePerSource.Remove(key);
+                    timeOfLastChangePerSource.Remove(key);
+                }
+            }
+            if (canRecover)
+            {
+                if ((!waitBeforeRecover) || ((Time.time - timeOfLastChange) > timeBeforeRecovery))
+                {
+                    var prevTime = timeOfLastChange;
+                    Change(ChangeType.OverTime, Time.deltaTime * recoveryPerSecond, transform.position, Vector3.zero, gameObject, true);
+                    timeOfLastChange = prevTime;
                 }
             }
         }
@@ -269,7 +316,7 @@ namespace OkapiKit
             switch (type)
             {
                 case Type.Hypertag:
-                    if (tag) return $"[{tag.name}]";
+                    if (tag) return $"[{tag.name}].{resName}";
                     else return $"[UNDEFINED].{resName}";
                 case Type.Object:
                     if (obj)

@@ -50,6 +50,25 @@ namespace OkapiKit
             UpdateExplanation();
         }
 
+        protected virtual void OnEnable()
+        {
+            if (rb)
+            {
+                rb.linearVelocity = disableSpeed;
+                disableSpeed = Vector2.zero;
+            }
+        }
+
+        Vector3 disableSpeed;
+        protected virtual void OnDisable()
+        {
+            if (rb)
+            {
+                disableSpeed = rb.linearVelocity;
+                rb.linearVelocity = Vector2.zero;
+            }
+        }
+
         protected void MoveDelta(Vector3 delta)
         {
             if (rb != null)

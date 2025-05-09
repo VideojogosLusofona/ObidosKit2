@@ -25,10 +25,10 @@ namespace OkapiKit
 
         void Update()
         {
-            var v = GetVariable();
-            if (v == null) return;
+            var v = GetCurrentValue();
+            var range = GetRange();
 
-            float t = (v.currentValue - v.minValue) / (v.maxValue - v.minValue);
+            float t = (v - range.x) / (range.y - range.x);
 
             fill.localScale = new Vector2(t, 1.0f);
 

@@ -34,20 +34,19 @@ namespace OkapiKit
 
         void Update()
         {
-            var v = GetVariable();
-            if (v == null) return;
             if ((textGUI == null) && (textScene == null)) return;
 
+            float v = GetCurrentValue();
             var txt = "";
             try
             {
-                txt = string.Format(baseText, v.currentValue);
+                txt = string.Format(baseText, v);
             }
             catch
             {
                 try
                 {
-                    txt = string.Format(baseText, (int)v.currentValue);
+                    txt = string.Format(baseText, (int)v);
                 }
                 catch
                 {

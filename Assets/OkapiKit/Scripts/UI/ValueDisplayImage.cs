@@ -15,14 +15,13 @@ namespace OkapiKit
         // Update is called once per frame
         void Update()
         {
-            var v = GetVariable();
-            if (v == null) return;
+            var v = GetCurrentValue();
 
             int i = 0;
 
             foreach (Transform t in transform)
             {
-                t.gameObject.SetActive(i < v.currentValue);
+                t.gameObject.SetActive(i < v);
                 i++;
             }
         }

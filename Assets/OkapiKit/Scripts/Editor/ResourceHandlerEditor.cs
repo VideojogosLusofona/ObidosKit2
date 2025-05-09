@@ -11,6 +11,9 @@ namespace OkapiKit.Editor
         SerializedProperty flags;
         SerializedProperty globalCooldown;
         SerializedProperty cooldownPerSource;
+        SerializedProperty recoveryPerSecond;
+        SerializedProperty timeBeforeRecovery;
+
 
         Resource resource;
 
@@ -25,6 +28,8 @@ namespace OkapiKit.Editor
             flags = serializedObject.FindProperty("flags");
             globalCooldown = serializedObject.FindProperty("globalCooldown");
             cooldownPerSource = serializedObject.FindProperty("cooldownPerSource");
+            recoveryPerSecond = serializedObject.FindProperty("recoveryPerSecond");
+            timeBeforeRecovery = serializedObject.FindProperty("timeBeforeRecovery");
         }
 
         public override void OnInspectorGUI()
@@ -46,11 +51,20 @@ namespace OkapiKit.Editor
                 {
                     EditorGUILayout.PropertyField(cooldownPerSource, new GUIContent("Per source cooldown", "Changes from a single source can't happen faster than this time."));
                 }
+                if (resource.canRecover)
+                {
+                    EditorGUILayout.PropertyField(recoveryPerSecond, new GUIContent("Recovery per second", "How much to recover every second?"));
+                    if (resource.waitBeforeRecover)
+                    {
+                        EditorGUILayout.PropertyField(timeBeforeRecovery, new GUIContent("Time before recovery", "Wait this time before start recovering the resource after a change (positive or negative)"));
+                    }
+                }
 
                 if ((f & Resource.Flags.OverrideStartValue) != 0)
                 { 
                     EditorGUILayout.PropertyField(startValueProperty, new GUIContent("Start value", "Instead of using the default value, use this."));
                 }
+
 
                 if (resource != null && resource.type != null)
                 {
@@ -69,6 +83,7 @@ namespace OkapiKit.Editor
             }
 
             serializedObject.ApplyModifiedProperties();
+            (target as OkapiElement).UpdateExplanation();
         }
 
         private void DrawProgressBar(Resource resource)

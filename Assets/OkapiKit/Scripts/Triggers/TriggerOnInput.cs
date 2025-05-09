@@ -34,6 +34,7 @@ namespace OkapiKit
 
         float cooldownTimer = 0.0f;
         bool prevAnyKey = false;
+        bool initialize = false;
 
         public override string GetTriggerTitle() => "On Input";
 
@@ -82,6 +83,16 @@ namespace OkapiKit
 
         void Update()
         {
+            if (!initialize)
+            {
+                if (Input.anyKey) return;
+
+                initialize = true;
+
+                Input.ResetInputAxes();
+                return;
+            }
+
             if (!isTriggerEnabled) return;
             if (!EvaluatePreconditions()) return;
 
@@ -125,7 +136,7 @@ namespace OkapiKit
                 }
                 else
                 {
-                    isTrigger = Input.anyKeyDown;
+                    isTrigger = Input.anyKeyDown && !prevAnyKey;
                     elseTrigger = !Input.anyKey && prevAnyKey;
                 }
                 prevAnyKey = Input.anyKey;

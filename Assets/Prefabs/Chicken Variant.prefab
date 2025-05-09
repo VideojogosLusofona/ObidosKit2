@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3324836088267409505
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 776449926748489824, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_Name
+      value: Chicken Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -116.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987752577040688482, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465156376748806717, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: flags
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465156376748806717, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: agentRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465156376748806717, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: _explanation
+      value: "This module enables AI behavior for this object, including stateful
+        transitions between behaviors such as idle, patrol, wandering, fleeing, chasing,
+        and searching.\n- Wanders within a radius of 50 units from its spawn point
+        every 2\u20133s at 0.5\xD7 speed.\n- Flees from objects tagged with: TagCharacter,
+        within 20 units, at 1\xD7 speed."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465156376748806717, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: agentOffset.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465156376748806717, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: fleeSpeedModifier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465156376748806717, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: fleeTags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465156376748806717, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: wanderSpeedModifier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465156376748806717, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: 'fleeTags.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a03e149c8c71e2428ceca9c56f5b8a1, type: 2}
+    - target: {fileID: 8550824018822199272, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5758861361426822821, guid: 28db9d88c376cac4396dc479a17f4846, type: 3}
+    - target: {fileID: 8550824018822199272, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_Color.g
+      value: 0.90588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550824018822199272, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8829191
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597075816305409714, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: speed.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597075816305409714, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: speed.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597075816305409714, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}
+      propertyPath: _explanation
+      value: 'This module will be controlled by the AI module. Object moves at (50.00,
+        50.00) units per second.
+
+        Speed will be limited to 25 units per second.
+
+        When
+        the character is moving to the left, the object will be rotated 180 degrees
+        around the Y axis.
+
+'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7736034f135b1ef44924c5198575d2cb, type: 3}

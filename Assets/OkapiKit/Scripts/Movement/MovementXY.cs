@@ -389,7 +389,6 @@ namespace OkapiKit
                 }
             }
 
-            const float epsilonZero = 1e-3f;
             switch (flipBehaviour)
             {
                 case FlipBehaviour.None:
@@ -397,17 +396,17 @@ namespace OkapiKit
                 case FlipBehaviour.VelocityFlipsSprite:
                     if (spriteRenderer)
                     {
-                        if (currentVelocity.x > epsilonZero) spriteRenderer.flipX = false;
-                        else if (currentVelocity.x < -epsilonZero) spriteRenderer.flipX = true;
+                        if (currentVelocity.x > 0.5f) spriteRenderer.flipX = false;
+                        else if (currentVelocity.x < -0.5f) spriteRenderer.flipX = true;
                     }
                     break;
                 case FlipBehaviour.VelocityInvertsScale:
-                    if ((currentVelocity.x > epsilonZero) && (transform.localScale.x < 0.0f)) transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                    else if ((currentVelocity.x < -epsilonZero) && (transform.localScale.x > 0.0f)) transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                    if ((currentVelocity.x > 0.5f) && (transform.localScale.x < 0.0f)) transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                    else if ((currentVelocity.x < -0.5f) && (transform.localScale.x > 0.0f)) transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                     break;
                 case FlipBehaviour.VelocityRotatesSprite:
-                    if ((currentVelocity.x > epsilonZero) && (transform.right.x < 0.0f)) transform.rotation = originalRotation;
-                    else if ((currentVelocity.x < -epsilonZero) && (transform.right.x > 0.0f)) transform.rotation = originalRotation * Quaternion.Euler(0, 180, 0);
+                    if ((currentVelocity.x > 0.5f) && (transform.right.x < 0.0f)) transform.rotation = originalRotation;
+                    else if ((currentVelocity.x < -0.5f) && (transform.right.x > 0.0f)) transform.rotation = originalRotation * Quaternion.Euler(0, 180, 0);
                     break;
                 default:
                     break;

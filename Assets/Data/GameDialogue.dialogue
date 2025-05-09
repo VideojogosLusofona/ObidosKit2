@@ -1,0 +1,59 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Dialogue file
+//
+
+// This defines a named dialogue (WizardHello in this case)
+# WizardMain
+{!IsQuestRegistered("TagSystem", "FindDog")}=>Wizard:GiveQuestFindDog
+{!IsQuestDone("TagSystem", "FindDog")}=>Wizard:PleaseFindMyDog
+
+# Wizard:GiveQuestFindDog
+[Wizard]: Help, adventurer!
+
+These goblins are everywhere, and they scared my dog Timo away!
+
+Please find it and bring it back to me!
+*No, that's not my problem! -> WizardHello:NoFindDog
+*Yes, let's go! -> WizardHello:YesFindDog
+
+# WizardHello:NoFindDog
+[Wizard]: Oh, you're a mean one! Don't you have a heart?!
+
+# WizardHello:YesFindDog
+[Wizard]: Yay! 
+Last I saw him, he was running north!
+
+Take this sword to protect yourself, don't forget to equip it!
+=>{    
+    // This is code that's executed when this dialogue ends
+    GiveQuest("TagSystem", "FindDog"); 
+    AddItemToInventory("TagSystem", "ItemSword", 1);
+    AddItemToInventory("System", "Staff", 1);
+}
+
+# Wizard:PleaseFindMyDog
+[Wizard]: Please find Timo!
+
+# Wizard:FoundDog
+[Wizard]: Timo!!!!!
+
+Thank you, adventurer, you truly are a hero!
+
+Now, if you kill some goblins for me, I'll give you something neat!
+=>{    
+    GiveQuest("TagSystem", "KillGoblins"); 
+}
+
+# Wizard:KillGoblins
+[Wizard]: Ah, excelent!
+As promised, here's my staff of fireball, enjoy!
+
+Now... This is kind of embarassing... Er...
+
+Well, let's just say that these goblins are here because I kind of made a mistake, and opened a demonic portal instead of making dinner!
+
+Anyway, if you could find the key to my house so we can go to the basement and close the portal, that would be great! One of these goblins will probably have it!
+=>{    
+    AddItemToInventory("TagSystem", "ItemStaff", 1);
+    GiveQuest("TagSystem", "FindGoldKey"); 
+}

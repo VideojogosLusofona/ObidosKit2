@@ -35,6 +35,8 @@ namespace OkapiKit.Editor
 
             if (WriteTitle())
             {
+                EditorGUI.BeginChangeCheck();
+
                 EditorGUILayout.PropertyField(linkedInventory);
                 EditorGUILayout.PropertyField(availableSlots);
 
@@ -91,6 +93,13 @@ namespace OkapiKit.Editor
                         EditorGUILayout.EndHorizontal();
                     }
                 }
+
+                if (EditorGUI.EndChangeCheck())
+                {
+                    serializedObject.ApplyModifiedProperties();
+                    equipment.UpdateExplanation();
+                }
+
             }
         }
 

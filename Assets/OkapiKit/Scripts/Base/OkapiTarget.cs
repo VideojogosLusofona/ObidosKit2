@@ -134,15 +134,14 @@ namespace OkapiKit
                         var allObjects = parentGameObject.FindObjectsOfTypeWithHypertag<HypertaggedObject>(tag);
                         foreach (var obj in allObjects)
                         {
-                            var t = obj.GetComponent<T>();
-                            T[] tt = null;
-                            if (t) ret.Add(t);
+                            T[] tt = obj.GetComponents<T>(); ;
+                            if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
 
                             if (incChildren) tt = obj.GetComponentsInChildren<T>();
                             if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
 
-                            if (incParent) t = obj.GetComponentInParent<T>();
-                            if (t) ret.Add(t);
+                            if (incParent) tt = obj.GetComponentsInParent<T>();
+                            if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
                         }
                     }
                     break;
@@ -151,28 +150,26 @@ namespace OkapiKit
                     {
                         if (obj) ret.Add(obj);
 
-                        T   t = null;
                         T[] tt = null;
                         if (incChildren) tt = obj.GetComponentsInChildren<T>();
                         if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
 
-                        if (incParent) t = obj.GetComponentInParent<T>();
-                        if (t) ret.Add(t);
+                        if (incParent) tt = obj.GetComponentsInParent<T>();
+                        if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
                     }
                     break;
                 case Type.Self:
                     {
-                        T t = null;
-
-                        t = parentGameObject.GetComponent<T>();
-                        if (t) ret.Add(t);
-
                         T[] tt = null;
+
+                        tt = parentGameObject.GetComponents<T>();
+                        if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
+
                         if (incChildren) tt = parentGameObject.GetComponentsInChildren<T>();
                         if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
 
-                        if (incParent) t = parentGameObject.GetComponentInParent<T>();
-                        if (t) ret.Add(t);
+                        if (incParent) tt = parentGameObject.GetComponentsInParent<T>();
+                        if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
                     }
                     break;
                 case Type.Collider:
@@ -180,17 +177,16 @@ namespace OkapiKit
                         var colliderObject = TriggerOnCollision.GetLastCollider();
                         if (colliderObject != null)
                         {
-                            T t = null;
-
-                            t = colliderObject.GetComponent<T>();
-                            if (t) ret.Add(t);
-
                             T[] tt = null;
+
+                            tt = colliderObject.GetComponents<T>();
+                            if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
+
                             if (incChildren) tt = colliderObject.GetComponentsInChildren<T>();
                             if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
 
-                            if (incParent) t = colliderObject.GetComponentInParent<T>();
-                            if (t) ret.Add(t);
+                            if (incParent) tt = colliderObject.GetComponentsInParent<T>();
+                            if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
                         }
                     }
                     break;
@@ -211,9 +207,8 @@ namespace OkapiKit
                                     if (incChildren) tt = tmp.GetComponentsInChildren<T>();
                                     if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
 
-                                    T t = null;
-                                    if (incParent) t = tmp.GetComponentInParent<T>();
-                                    if (t) ret.Add(t);
+                                    if (incParent) tt = tmp.GetComponentsInParent<T>();
+                                    if ((tt != null) && (tt.Length > 0)) ret.AddRange(tt);
                                 }
                             }
 

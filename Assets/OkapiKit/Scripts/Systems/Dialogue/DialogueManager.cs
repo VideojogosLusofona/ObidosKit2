@@ -39,13 +39,15 @@ namespace OkapiKit
             }
         }
 
-        void Awake()
+        protected override void Awake()
         {
             if ((instance != null) && (instance != this))
             {
                 Destroy(gameObject);
                 return;
             }
+            
+            base.Awake();
 
             instance = this;
 
@@ -113,7 +115,11 @@ namespace OkapiKit
         protected bool _StartConversation(string dialogueKey)
         {
             (var dialogueData, var dialogue) = FindDialogue(dialogueKey);
-            if (dialogue == null) return false;
+            if (dialogue == null)
+            {
+                Debug.LogWarning($"Can't find {dialogueKey} on dialogues!");
+                return false;
+            }
             if (((dialogue.flags & DialogueData.DialogueFlags.OneShot) != 0) &&
                 dialogueCount.ContainsKey(dialogueKey))
             {

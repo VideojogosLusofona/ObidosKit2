@@ -1,0 +1,335 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4892079378125302796
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -53.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_Name
+      value: KillableCharacter Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773031515282250461, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2790419357648645692}
+    - targetCorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3965433978417705092}
+    - targetCorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7347151751544481179}
+    - targetCorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2496203215628518041}
+    - targetCorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3820266011808676596}
+    - targetCorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8476565347575752290}
+    - targetCorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5642406958613939484}
+  m_SourcePrefab: {fileID: 100100000, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+--- !u!212 &1115825706123751824 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5519194153519242652, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+  m_PrefabInstance: {fileID: 4892079378125302796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5809702441314394906 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1388267367337791254, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+  m_PrefabInstance: {fileID: 4892079378125302796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &6990096467696553715 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2514671009310188287, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+  m_PrefabInstance: {fileID: 4892079378125302796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8291150748838776344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3527512487959454228, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+  m_PrefabInstance: {fileID: 4892079378125302796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2790419357648645692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291150748838776344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14e6c143c2403d469e77a917c7cdce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 0
+  _explanation: Applies a vertical bounce to target on Gfx based on this object's
+    movement. One bounce cycle takes 0.25 seconds and reaches a height of 2 units.
+    If the object teleports more than 50 units, the bounce resets.
+  description: 
+  target:
+    type: 1
+    tag: {fileID: 0}
+    obj: {fileID: 8398091287446427479}
+    flags: 0
+  stepTime: 0.25
+  stepHeight: 2
+  teleportDistance: 50
+--- !u!114 &3965433978417705092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291150748838776344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6235f4569dc5593418dda55aceb51369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 0
+  _explanation: 
+  description: 
+  type: {fileID: 11400000, guid: 6b8f20c052a84a54cacf7eef24a4877d, type: 2}
+  flags: 10
+  globalCooldown: 0.1
+  cooldownPerSource: 0.1
+  startValue: 0
+--- !u!114 &7347151751544481179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291150748838776344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3203f38d4afc6a4283618fa1df06ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 0
+  _explanation: "Check for death\n----------------\nWhen ([KillableCharacter Variant].Health
+    <= 0):\n          disables component KillableCharacter Variant (UnityEngine.BoxCollider2D)\n         
+    sets Gfx's sprite to [env_80]\n          sets Gfx's sprite color to RGBA(0.575,
+    0.575, 0.575, 1.000)\n          set the X scale of object KillableCharacter Variant
+    to 0.5, and set the Y scale of object KillableCharacter Variant to 0.5.\n\nThis
+    trigger will execute only when the conditions change and they are all true."
+  description: Check for death
+  enableTrigger: 1
+  allowRetrigger: 0
+  hasPreconditions: 0
+  preConditions: []
+  actions:
+  - delay: 0
+    action: {fileID: 2496203215628518041}
+  - delay: 0
+    action: {fileID: 3820266011808676596}
+  - delay: 0
+    action: {fileID: 8476565347575752290}
+  - delay: 0
+    action: {fileID: 5642406958613939484}
+  continuous: 0
+  conditions:
+  - negate: 0
+    valueHandler: {fileID: 0}
+    variable: {fileID: 0}
+    valueType: 21
+    tag: {fileID: 0}
+    tagCountRangeEnabled: 0
+    tagCountRange: 0
+    sourceTransform: {fileID: 0}
+    rigidBody: {fileID: 0}
+    axis: 0
+    probe: {fileID: 0}
+    movementPlatformer: {fileID: 0}
+    comparison: 2
+    value: 0
+    comparisonValueHandler: {fileID: 0}
+    comparisonVariable: {fileID: 0}
+    percentageCompare: 0
+    tile: {fileID: 0}
+    tileSet: {fileID: 0}
+    inventory:
+      type: 0
+      tag: {fileID: 0}
+      obj: {fileID: 0}
+      flags: 0
+    item: {fileID: 0}
+    equipment:
+      type: 0
+      tag: {fileID: 0}
+      obj: {fileID: 0}
+      flags: 0
+    resource:
+      type: 1
+      tag: {fileID: 0}
+      obj: {fileID: 3965433978417705092}
+      flags: 0
+      resourceType: {fileID: 0}
+    questManager:
+      type: 0
+      tag: {fileID: 0}
+      obj: {fileID: 0}
+      flags: 0
+    quest: {fileID: 0}
+    dialogueKey: 
+  elseActions: []
+--- !u!114 &2496203215628518041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291150748838776344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e9241509df85c44871f6a996f27c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 0
+  _explanation: Disables component KillableCharacter Variant (UnityEngine.BoxCollider2D)
+  description: 
+  enableAction: 1
+  hasTags: 0
+  actionTags: []
+  hasConditions: 0
+  actionConditions: []
+  target: {fileID: 6990096467696553715}
+  state: 1
+--- !u!114 &3820266011808676596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291150748838776344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302ff7b812c0d7846bbbf5b0db22ec81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 0
+  _explanation: 'Sets Gfx''s sprite to [env_80]'
+  description: 
+  enableAction: 1
+  hasTags: 0
+  actionTags: []
+  hasConditions: 0
+  actionConditions: []
+  target: {fileID: 1115825706123751824}
+  changeType: 0
+  sprite: {fileID: -5968519480515450004, guid: e0f2ac25f112faa4e95170790292c78a, type: 3}
+  color: {r: 1, g: 1, b: 1, a: 1}
+  boolState: 0
+--- !u!114 &8476565347575752290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291150748838776344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302ff7b812c0d7846bbbf5b0db22ec81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 0
+  _explanation: Sets Gfx's sprite color to RGBA(0.575, 0.575, 0.575, 1.000)
+  description: 
+  enableAction: 1
+  hasTags: 0
+  actionTags: []
+  hasConditions: 0
+  actionConditions: []
+  target: {fileID: 1115825706123751824}
+  changeType: 1
+  sprite: {fileID: 0}
+  color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  boolState: 0
+--- !u!114 &5642406958613939484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291150748838776344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef5f9e0d47611f4da64c31fc24a95e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 0
+  _explanation: Set the X scale of object KillableCharacter Variant to 0.5, and set
+    the Y scale of object KillableCharacter Variant to 0.5.
+  description: 
+  enableAction: 1
+  hasTags: 0
+  actionTags: []
+  hasConditions: 0
+  actionConditions: []
+  target: {fileID: 5809702441314394906}
+  changeType: 2
+  xAxis: 2
+  positionX: {x: 0.5, y: 0.5}
+  deltaX: {x: 0, y: 0}
+  yAxis: 2
+  positionY: {x: 0.5, y: 0.5}
+  deltaY: {x: 0, y: 0}
+  scaleWithTime: 0
+--- !u!4 &8398091287446427479 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3992489179767389019, guid: 273817e677cdbcd4bb49e68aceccccde, type: 3}
+  m_PrefabInstance: {fileID: 4892079378125302796}
+  m_PrefabAsset: {fileID: 0}

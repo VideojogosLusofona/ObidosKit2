@@ -34,9 +34,12 @@ namespace OkapiKit
         public override string GetRawDescription(string ident, GameObject refObject)
         {
             string desc = "Equipment system, use with actions such as Equip/Unequip/Toggle Item, or conditions such as IsEquipped.\nThe following slots are available:\n";
-            foreach (var equip in availableSlots)
+            if (availableSlots != null)
             {
-                desc += $"{ident}   {equip.name}\n";
+                foreach (var equip in availableSlots)
+                {
+                    desc += $"{ident}   {equip.name}\n";
+                }
             }
 
             return desc;

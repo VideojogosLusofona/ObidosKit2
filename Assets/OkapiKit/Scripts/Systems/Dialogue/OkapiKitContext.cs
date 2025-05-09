@@ -104,6 +104,55 @@ namespace OkapiKit
             return true;
         }
 
+        public bool IsQuestRegistered(string targetTagName, string questName)
+        {
+            var targetTag = GetTagByName(targetTagName);
+            if (targetTag == null)
+            {
+                return false;
+            }
+            var questManager = HypertaggedObject.FindObjectByHypertag<QuestManager>(targetTag);
+            if (questManager == null) questManager = HypertaggedObject.FindObjectByHypertag<Transform>(targetTag)?.GetComponentInChildren<QuestManager>() ?? null;
+            if (questManager == null)
+            {
+                Debug.LogError($"Can't find quest manager tagged with {targetTagName}");
+                return false;
+            }
+
+            var quest = GetQuestByName(questName);
+            if (quest == null)
+            {
+                Debug.LogError($"Can't find quest {questName}!");
+                return false;
+            }
+
+            return questManager.IsQuestPending(quest) || questManager.IsQuestActive(quest) || questManager.IsQuestComplete(quest) || questManager.IsQuestFailed(quest);
+        }
+        public bool IsQuestDone(string targetTagName, string questName)
+        {
+            var targetTag = GetTagByName(targetTagName);
+            if (targetTag == null)
+            {
+                return false;
+            }
+            var questManager = HypertaggedObject.FindObjectByHypertag<QuestManager>(targetTag);
+            if (questManager == null) questManager = HypertaggedObject.FindObjectByHypertag<Transform>(targetTag)?.GetComponentInChildren<QuestManager>() ?? null;
+            if (questManager == null)
+            {
+                Debug.LogError($"Can't find quest manager tagged with {targetTagName}");
+                return false;
+            }
+
+            var quest = GetQuestByName(questName);
+            if (quest == null)
+            {
+                Debug.LogError($"Can't find quest {questName}!");
+                return false;
+            }
+
+            return questManager.IsQuestComplete(quest) || questManager.IsQuestFailed(quest);
+        }
+
         protected Quest GetQuestByName(string name)
         {
             if (cachedQuests == null)
@@ -111,8 +160,12 @@ namespace OkapiKit
                 cachedQuests = new();
                 foreach (var q in quests)
                 {
-                    cachedQuests.Add(q.name, q);
-                    cachedQuests.Add(q.displayName, q);
+                    cachedQuests.TryAdd(q.name, q);
+                    if (q.name.StartsWith("Quest"))
+                    {
+                        cachedQuests.TryAdd(q.name.Substring(5), q);
+                    }
+                    cachedQuests.TryAdd(q.displayName, q);
                 }
             }
 
@@ -128,6 +181,6 @@ namespace OkapiKit
         {
             quests = new List<Quest>(AssetUtils.GetAll<Quest>());
         }
-    }
 #endif
+    }
 }

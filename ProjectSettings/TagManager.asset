@@ -11,13 +11,6 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
-  - Player
-  - PlayerBounds
-  - Enemy
-  - Water
-  - Crate
-  - Intangible
   - Obstacle
   - 
   - 
@@ -35,7 +28,14 @@ TagManager:
   - 
   - 
   - 
-  - Test
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - NoCollision
   - Postprocess
   m_SortingLayers:
   - name: Background

@@ -6,17 +6,24 @@ namespace OkapiKit.Editor
     [CustomEditor(typeof(ValueDisplay))]
     public class ValueDisplayEditor : OkapiBaseEditor
     {
-        protected SerializedProperty propValueHandler;
-        protected SerializedProperty propVariable;
+        protected SerializedProperty valueSource;
+        protected SerializedProperty valueHandler;
+        protected SerializedProperty variable;
+        protected SerializedProperty resource;
 
+        ValueDisplay valueDisplay;
         protected virtual string typeOfDisplay { get; }
 
         protected override void OnEnable()
         {
             base.OnEnable();
 
-            propValueHandler = serializedObject.FindProperty("valueHandler");
-            propVariable = serializedObject.FindProperty("variable");
+            valueSource = serializedObject.FindProperty("valueSource"); ;
+            valueHandler = serializedObject.FindProperty("valueHandler"); ;
+            variable = serializedObject.FindProperty("variable"); ;
+            resource = serializedObject.FindProperty("resource"); ;
+
+            valueDisplay = target as ValueDisplay;
         }
 
         public override void OnInspectorGUI()
@@ -33,21 +40,23 @@ namespace OkapiKit.Editor
         {
             EditorGUI.BeginChangeCheck();
 
-            if (propValueHandler.objectReferenceValue == null)
+            EditorGUILayout.PropertyField(valueSource, new GUIContent("Value Source", "What's the value source"));
+
+            var source = (ValueDisplay.ValueSource)valueSource.enumValueIndex;
+
+            switch (source)
             {
-                if (propVariable.objectReferenceValue == null)
-                {
-                    EditorGUILayout.PropertyField(propValueHandler, new GUIContent("Variable Instance", "Variable instance to display.\nYou can only select either a global variable or a Value Instance, not both at the same time."), true);
-                    EditorGUILayout.PropertyField(propVariable, new GUIContent("Variable", "Variable to display.\nYou can only select either a global variable or a Value Instance, not both at the same time."), true);
-                }
-                else
-                {
-                    EditorGUILayout.PropertyField(propVariable, new GUIContent("Variable", "Variable to display.\nYou can only select either a global variable or a Value Instance, not both at the same time."), true);
-                }
-            }
-            else
-            {
-                EditorGUILayout.PropertyField(propValueHandler, new GUIContent("Variable Instance", "Variable instance to display.\nYou can only select either a global variable or a Value Instance, not both at the same time."), true);
+                case ValueDisplay.ValueSource.Variable:
+                    EditorGUILayout.PropertyField(variable, new GUIContent("Variable", "Variable to display."), true);
+                    break;
+                case ValueDisplay.ValueSource.VariableInstance:
+                    EditorGUILayout.PropertyField(valueHandler, new GUIContent("Variable Instance", "Variable instance to display."), true);
+                    break;
+                case ValueDisplay.ValueSource.Resource:
+                    EditorGUILayout.PropertyField(resource, new GUIContent("Resource", "Resource to display."), true);
+                    break;
+                default:
+                    break;
             }
 
             if (isFinal)
@@ -80,19 +89,24 @@ namespace OkapiKit.Editor
         protected override string GetTitle()
         {
             string varName = "[UNDEFINED]";
-            if (propValueHandler.objectReferenceValue == null)
+            var source = (ValueDisplay.ValueSource)valueSource.enumValueIndex;
+
+            switch (source)
             {
-                if (propVariable.objectReferenceValue != null)
-                {
-                    varName = propVariable.objectReferenceValue.name;
-                }
-            }
-            else
-            {
-                varName = propValueHandler.objectReferenceValue.name;
+                case ValueDisplay.ValueSource.Variable:
+                    varName = variable.objectReferenceValue?.name ?? "[UNDEFINED]";
+                    break;
+                case ValueDisplay.ValueSource.VariableInstance:
+                    varName = valueHandler.objectReferenceValue?.name ?? "[UNDEFINED]";
+                    break;
+                case ValueDisplay.ValueSource.Resource:
+                    varName = valueDisplay.GetResource()?.GetShortDescription(valueDisplay.gameObject);
+                    break;
+                default:
+                    break;
             }
 
-            return $"Display [{varName}] as {typeOfDisplay}";
+            return $"Display {varName} as {typeOfDisplay}";
         }
 
         protected override Texture2D GetIcon()

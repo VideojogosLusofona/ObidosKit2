@@ -27,6 +27,7 @@ namespace OkapiKit
         public float minValue { get { return _minValue; } }
         public float maxValue { get { return _maxValue; } }
         public bool hasLimits => _hasLimits;
+        public Vector2 GetRange() => new Vector2(_minValue, _maxValue);
 
         public Type type
         {
