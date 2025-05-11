@@ -5054,7 +5054,9 @@ GameObject:
   - component: {fileID: 1026226996874188021}
   - component: {fileID: 1364765705380329209}
   - component: {fileID: 3297452405820558407}
+  - component: {fileID: 8000866575837433971}
   - component: {fileID: 4618879789864129067}
+  - component: {fileID: 912299410904403940}
   - component: {fileID: 2874350869642911083}
   - component: {fileID: 1525656294541169835}
   - component: {fileID: 7461425595667339695}
@@ -5235,25 +5237,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b66a51b7fe64c4390ac471b7df316b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showInfo: 0
-  _explanation: "When a collision with a trigger with tags [TagObstacle] starts:\n         
-    disables component Fireball (OkapiKit.MovementForward)\n          play particle
-    system PS\n then, at 0.1 seconds, \n          disables renderer Fireball\n then,
-    at 2 seconds, \n          destroys this object\n"
+  _showInfo: 1
+  _explanation: "When a collision with a trigger with tags [TagObstacle] starts:\n          
+    At 0 seconds, \n                    disables component Fireball (OkapiKit.MovementForward)\n                   
+    disables component Fireball (UnityEngine.CircleCollider2D)\n                   
+    play particle system PS\n           At 0.05 seconds, \n                    disables
+    renderer Fireball\n           At 2 seconds, \n                    destroys this
+    object\n          \n"
   description: 
   enableTrigger: 1
-  allowRetrigger: 1
+  allowRetrigger: 0
   hasPreconditions: 0
   preConditions: []
   actions:
   - delay: 0
-    action: {fileID: 4618879789864129067}
-  - delay: 0
-    action: {fileID: 1525656294541169835}
-  - delay: 0.1
-    action: {fileID: 2874350869642911083}
-  - delay: 2
-    action: {fileID: 7461425595667339695}
+    action: {fileID: 8000866575837433971}
   collisionType: 2
   eventType: 0
   tags:
@@ -5272,30 +5270,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _showInfo: 1
   _explanation: "When a collision with a trigger with tags [TagEnemy] starts:\n         
-    disables component Fireball (OkapiKit.MovementForward)\n          subtracts 50
-    from resource Collider.Health\n          disables renderer Fireball\n then, at
-    0.1 seconds, \n          play particle system PS\n then, at 2 seconds, \n         
-    destroys this object\n"
+    subtracts 50 from resource Collider.Health\n           At 0 seconds, \n                   
+    disables component Fireball (OkapiKit.MovementForward)\n                    disables
+    component Fireball (UnityEngine.CircleCollider2D)\n                    play particle
+    system PS\n           At 0.05 seconds, \n                    disables renderer
+    Fireball\n           At 2 seconds, \n                    destroys this object\n         
+    \n"
   description: 
   enableTrigger: 1
-  allowRetrigger: 1
+  allowRetrigger: 0
   hasPreconditions: 0
   preConditions: []
   actions:
   - delay: 0
-    action: {fileID: 4618879789864129067}
-  - delay: 0
     action: {fileID: 8824955526915473653}
   - delay: 0
-    action: {fileID: 2874350869642911083}
-  - delay: 0.1
-    action: {fileID: 1525656294541169835}
-  - delay: 2
-    action: {fileID: 7461425595667339695}
+    action: {fileID: 8000866575837433971}
   collisionType: 2
   eventType: 0
   tags:
   - {fileID: 11400000, guid: ba6de6cbf7dab25458ec547b74e2a35b, type: 2}
+--- !u!114 &8000866575837433971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686965281858753709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5589b26fd161ed94482bcd3969cd9349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 0
+  _explanation: " At 0 seconds, \n          disables component Fireball (OkapiKit.MovementForward)\n         
+    disables component Fireball (UnityEngine.CircleCollider2D)\n          play particle
+    system PS\n At 0.05 seconds, \n          disables renderer Fireball\n At 2 seconds,
+    \n          destroys this object\n"
+  description: 
+  enableAction: 1
+  hasTags: 0
+  actionTags: []
+  hasConditions: 0
+  actionConditions: []
+  actions:
+  - delay: 0
+    action: {fileID: 4618879789864129067}
+  - delay: 0
+    action: {fileID: 912299410904403940}
+  - delay: 0
+    action: {fileID: 1525656294541169835}
+  - delay: 0.05
+    action: {fileID: 2874350869642911083}
+  - delay: 2
+    action: {fileID: 7461425595667339695}
 --- !u!114 &4618879789864129067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5317,6 +5345,28 @@ MonoBehaviour:
   hasConditions: 0
   actionConditions: []
   target: {fileID: 1026226996874188021}
+  state: 1
+--- !u!114 &912299410904403940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686965281858753709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e9241509df85c44871f6a996f27c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 0
+  _explanation: Disables component Fireball (UnityEngine.CircleCollider2D)
+  description: 
+  enableAction: 1
+  hasTags: 0
+  actionTags: []
+  hasConditions: 0
+  actionConditions: []
+  target: {fileID: 3712207792803200420}
   state: 1
 --- !u!114 &2874350869642911083
 MonoBehaviour:

@@ -62,7 +62,7 @@ namespace OkapiKit.Editor
                         EditorGUILayout.PropertyField(propTargetTransforms, new GUIContent("Targets", "What are the potential targets?"));
                         break;
                     case TeleportTarget.Tag:
-                        EditorGUILayout.PropertyField(propTargetTransforms, new GUIContent("Tags", "What are the potential target tags?"));
+                        EditorGUILayout.PropertyField(propTargetTags, new GUIContent("Tags", "What are the potential target tags?"));
                         break;
                     default:
                         break;

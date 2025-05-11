@@ -28,7 +28,6 @@ Take this sword to protect yourself, don't forget to equip it!
     // This is code that's executed when this dialogue ends
     GiveQuest("TagSystem", "FindDog"); 
     AddItemToInventory("TagSystem", "ItemSword", 1);
-    AddItemToInventory("System", "Staff", 1);
 }
 
 # Wizard:PleaseFindMyDog

@@ -198,7 +198,7 @@ namespace OkapiKit
                     }
                     break;
                 case TeleportTarget.Tag:
-                    var taggedObjects = HypertaggedObject.FindObjectsByHypertag<Transform>(subjectTag);
+                    var taggedObjects = HypertaggedObject.FindObjectsByHypertag<Transform>(targetTags);
                     if ((taggedObjects != null) && (taggedObjects.Count > 0))
                     {
                         target = taggedObjects[Random.Range(0, taggedObjects.Count)];

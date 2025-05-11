@@ -377,7 +377,7 @@ namespace OkapiKit
                                     currentValue = 0;
                                     foreach (var obj in gameObjects)
                                     {
-                                        if (Vector3.Distance(obj.transform.position, gameObject.transform.position) < tagCountRange)
+                                        if (Vector3.Distance(obj.transform.position.xy0(), gameObject.transform.position.xy0()) < tagCountRange)
                                         {
                                             currentValue++;
                                         }
@@ -453,7 +453,7 @@ namespace OkapiKit
                                     gameObject.FindObjectsOfTypeWithHypertag<Transform>(tag, potentialTransforms);
                                     foreach (var obj in potentialTransforms)
                                     {
-                                        var d = Vector3.Distance(obj.position, gameObject.transform.position);
+                                        var d = Vector3.Distance(obj.position.xy0(), gameObject.transform.position.xy0());
                                         if (d < currentValue)
                                         {
                                             currentValue = d;
@@ -465,7 +465,7 @@ namespace OkapiKit
                                 {
                                     if (target)
                                     {
-                                        currentValue = Vector3.Distance(gameObject.transform.position, target.position);
+                                        currentValue = Vector3.Distance(gameObject.transform.position.xy0(), target.position.xy0());
                                     }
                                 }
                                 else if (valueType == ValueType.Angle)
@@ -503,7 +503,7 @@ namespace OkapiKit
                                 {
                                     var probe = gameObject.FindObjectOfTypeWithHypertag<Probe>(tag);
                                     if (probe)
-                                    {
+                                    { 
                                         currentValue = probe.GetIntersectionDistance();
                                         minValue = probe.GetMinDistance();
                                         maxValue = probe.GetMaxDistance();

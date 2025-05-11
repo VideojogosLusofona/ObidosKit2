@@ -1,112 +1,33 @@
-# OKAPI KIT
+# OBIDOS LEGEND KIT
 
-![TitleImage](Screenshots/title.png)
+![TitleImage](Screenshots/ObidosKitMain.png)
 
-This is a series of premade scripts intended for kit bashing of quick game development experiments for the  [Licenciatura em Videojogos][lv] da [Universidade Lusófona de Humanidades e Tecnologias][ULHT] in Lisbon.
+This is a series of premade scripts intended for kit bashing of quick game development experiments for the Epic-WE Óbidos Jam #4 - Legends.
+Created by [Diogo de Andrade] for [Licenciatura em Videojogos][lv] da [Universidade Lusófona de Humanidades e Tecnologias][ULHT] in Lisbon.
 
-It's currently still under development, and eventually will be commented properly, and have a manual.
-
-#
 # Installation
 
-## Option 1 - Super-simple, less useful
+## Requirements:
 
-You can simply create a fork of this repository or download it and start working!
+- [Unity 6.0.47](https://unity.com/download)
+- [VS Code](https://code.visualstudio.com/download)
 
-## Option 2 - Unity Package Manager
+## How to install
 
-Use the Unity Package Manager to install the OkapiKit:
-
-1. Open the Unity Package Manager
-
-![Install1](Screenshots/install01.png)
-
-2. Select "Add package from git URL"
-
-![Install1](Screenshots/install02.png)
-
-3. First install Naughty Attributes, by pasting the URL "https://github.com/dbrizov/NaughtyAttributes.git#upm"
-
-4. You can now install the OkapiKit, selecting again "Add package from git URL", and pasting the URL "https://github.com/VideojogosLusofona/OkapiKit.git#upm"
-
-5. If you want to install the samples as well, select again "Add package from git URL", and pasting the URL "https://github.com/VideojogosLusofona/OkapiKit.git#samples"
-
-6. With this option, everytime you want to update the package, you will have to remove it and re-add it (the Update option doesn't work properly in this context)
-
-# Sample
-
-It currently has seven sample 'games' (each a Scene under the Samples directory), accessible through a menu (Samples scene, also in the Samples directory).
-There are also some code snippets demonstrating some of the features, but devoid of any meaningful context. The Snippets menu can be accessed through the Samples scene.
-
-## Using the samples if you installed them as a package
-
-Due to the way packages work in Unity, you can't open the sample scenes from the package.
-To sidestep this issue, you have to follow some steps:
-
-1. Go to the Packages/OkapiKitSamples folder in your project view
-
-2. Copy all the scenes that you want to explore to your own project
-  - The relevant scenes are Samples and Snippets for the base menus, the individual scenes for each of the sample games (inside the folder) and the scenes inside the Snippets directory.
-
-3. Add all scenes to the build menu (or else they links between scenes won't work)
-
-## Pong
-
-![PongImage](Screenshots/pong.png)
-
-## Breakout
-
-![BreakoutImage](Screenshots/breakout.png)
-
-## Space Invaders
-
-![SpaceInvadersImage](Screenshots/spaceinvaders.png)
-
-## "Procedural" side scrolling shoot'em'up
-
-![SideShooterImage](Screenshots/sideshooter.png)
-
-## Asteroids
-
-![AsteroidsImage](Screenshots/asteroids.png)
-
-## Commando
-
-![CommandoImage](Screenshots/commando.png)
-
-## Platformer acid drip
-
-![PlatformerImage](Screenshots/platformer.png)
-
-## Snippets
-
-- Probe: 
-  - probe usage
-- StoppingDistance
-  - how to use the stopping distance property on the Follow movement
-- SingletonSoundManagerA/B
-  - how to use the singleton system in the OkapiKit
-  - how to keep a song playing throughout the game, even if it has multiple scenes
-  - how to use a button to change the music playing
-- FuzzyAim:
-  - Demonstrate how to make a system for mouse aiming which is more precise the more time you press the fire button
-  - Uses paths in a creating way
-- Alternate World:
-  - Demonstrates how to create an alternative world system, in which the player can't cross over if there will be a
-    collision
-- Grid system:
-  - Demonstrates most of the grid-based systems. By default, it has a crate that can be pushed into the water, which makes that part of the water disappear.
-  - It also allows you to place a bomb by pressing z, which will explode destroying the solid walls in a one tile radius
-  - You can also approach the trees, and press X to harvest them. A indicator will appear for you to know you can harvest them.
-  - You can also activate some other objects, like enemies, to test the different types of Movement Grid systems.
+- Clone repository or download ZIP and you're ready to go!
+- (if you downloaded the ZIP) Extract project to a directory
+- Open Unity Hub, select "Add" => "Project From Disk" and select the directory where the repository was cloned or the ZIP was extracted to
+- Open the scene "SampleGame", under the scenes directory and check it out
+- Open (or create a copy) of the "MainGame" scene, under the scenes directory and start working on your game!
+- Have fun!
 
 # Documentation
 
-For now, there's no documentation yet, but everything has custom editors, which display information on what each thing is doing (dynamically, depending on options selected):
+There's no documentation yet, but everything has custom editors, which display information on what each thing is doing (dynamically, depending on options selected):
 
 ![InspectorImage](Screenshots/inspector.png)
 
-In this image, we can see a bit of the inspector of a normal object (the player object in the asteroids sample). There's the normal Unity components (Sprite Renderer, Rigidbody, Collider), and then we have 
+In this image, we can see a bit of the inspector of a normal object. There's the normal Unity components (Sprite Renderer, Rigidbody, Collider), and then we have 
 several Okapi Kit components (identifiable by the large title). We have a movement script (rotation movement), an hypertag (allows to define what this object is, usefull to identify objects in collisions or
 as targets for operations), we have a collision Trigger (with the text that explains when it triggers,
 and what happens), and finally we have several Action scripts (used by the Triggers), that also explain what they're doing.
@@ -120,34 +41,15 @@ cursor on top of the Trigger icon (blue dot) on the Player object and we can see
 
 ![InspectorImage](Screenshots/hierarchy02.png)
 
-#
 # Licenses
 
 * All source code by Diogo Andrade is licensed under the [MIT] license.
-* Font "Karmatic Arcade" by [Vic Fieger]
 * Font "Alagard" by [Hewett Tsoi]
-* Breakout paddle by [Zealex], licensed under [CC-BY 3.0]
-* Breakout bricks by [Pavel Kutejnikov], licensed under [CC0]
-* Space Invaders enemies and player by [Clear_code], licensed under [CC-BY 4.0]
-* Tiles for space shooter by [mieki256], licensed under [CC0]
-* Space ships for space shooter by [SCaydi], licensed under [CC-BY 4.0]
-* Explosion by [Joshua Robertson], licensed under [CC-BY 3.0]
-* Top down ships by [Master484], licensed under [CC0]
-* Asteroid by [Warspawn], licensed under [CC0]
-* Nebula background by [leyren], licensed under [CC0]
-* Desert texture by [pansapiens], licensed under [CC0]
-* Survivor top down sprites by [rileygombart], licensed under [CC-BY 3.0]
-* Top-down buildings by [chabull], licensed under [CC-BY 3.0]
-* Platformer sprites by [IMakeGames], licensed under [CC-BY 3.0]
 * 1-Bit Pack by [KenneyNL], licensed under [CC0]
 * Gems by [Winternaut], licensed under [CC0]
-* [Simple Knight sprites](https://opengameart.org/content/simple-knight) by [Calciumtrice](https://opengameart.org/users/calciumtrice), licensed through [CC-BY 3.0](https://creativecommons.org/licenses/by/3.0/)
-* NES Shooter Music by [SketchyLogic], licensed under [CC0]
 * Editor icons from [FlatIcon]
-* Title imagem from [Midjourney]
 * [NaughtyAttributes] by Denis Rizov, available through the MIT license.
 
-#
 # Metadata
 
 * Autor: [Diogo Andrade]

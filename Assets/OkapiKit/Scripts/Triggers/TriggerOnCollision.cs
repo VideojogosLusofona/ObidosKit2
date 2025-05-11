@@ -98,7 +98,8 @@ namespace OkapiKit
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
-        {            
+        {
+            if (!collision.enabled) return;
             if (!isTrigger) return;
             if (!isTriggerEnabled) return;
             if (eventType != CollisionEvent.Enter) return;
@@ -117,6 +118,7 @@ namespace OkapiKit
         {
             lastCollider = null;
 
+            if (!collision.enabled) return;
             if (!isCollider) return;
             if (!isTriggerEnabled) return;
             if (eventType != CollisionEvent.Enter) return;
@@ -133,6 +135,7 @@ namespace OkapiKit
         {
             lastCollider = null;
 
+            if (!collision.enabled) return;
             if (!isTrigger) return;
             if (!isTriggerEnabled) return;
             if (eventType != CollisionEvent.Stay) return;
@@ -151,6 +154,7 @@ namespace OkapiKit
         {
             lastCollider = null;
 
+            if (!collision.enabled) return;
             if (!isCollider) return;
             if (!isTriggerEnabled) return;
             if (eventType != CollisionEvent.Stay) return;
@@ -168,6 +172,7 @@ namespace OkapiKit
         {
             lastCollider = null;
 
+            if (!collision.enabled) return;
             if (!isTrigger) return;
             if (!isTriggerEnabled) return;
             if (eventType != CollisionEvent.Exit) return;
@@ -185,6 +190,7 @@ namespace OkapiKit
         {
             lastCollider = null;
 
+            if (!collision.enabled) return;
             if (!isCollider) return;
             if (!isTriggerEnabled) return;
             if (eventType != CollisionEvent.Exit) return;
